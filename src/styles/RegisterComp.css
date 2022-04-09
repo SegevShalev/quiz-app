@@ -1,0 +1,116 @@
+.modal-content{
+    animation-name: changingBackground;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
+
+@keyframes changingBackground {
+    0%   {background-color: white;}
+    20%  {background-color: red;}
+    40%  {background-color: blue;}
+    60%  {background-color: yellow;}
+    80%  {background-color: brown;}
+    100% {background-color: white;}
+  }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input-field input {
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  border: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #f2f2f2;
+  font-size: 14px;
+  padding: 14px;
+  border-radius: 3px;
+  width: 200px;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+
+.input-field .placeholder {
+  position: absolute;
+  top: 43%;
+  left: 36%;
+  color: #aaa;
+  transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+
+.input-field input:valid ~ .placeholder, /* All the sons of the focused input + have data   */
+.input-field input:focus ~ .placeholder {
+  position: absolute;
+  top: 30%;
+  left: 260px;
+  font-size: 12px;
+  color: white;
+}
+
+.btn-register-modal {
+  position: fixed;
+  bottom: 60%;
+  background: #5e5df0;
+  border-radius: 1000px;
+  box-shadow: #5e5df0 0 10px 20px -10px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 8px 18px;
+  border: 0;
+  cursor: pointer;
+}
+
+.h1-register-modal {
+  position: absolute;
+  top: 0%;
+  color: black;
+  font-size: 45px;
+  font-weight: normal;
+  line-height: 60px;
+  margin: 10px 0 20px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 #000;
+  margin: 10px 0 24px;
+  text-align: center;
+}
+
+@keyframes changewidth {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(2);
+  }
+}
+
+.question-mark-right {
+  position: absolute;
+  bottom: 10%;
+  right: 20%;
+  animation-duration: 0.5s;
+  animation-name: changewidth;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.question-mark-left {
+  position: absolute;
+  bottom: 10%;
+  left: 20%;
+  animation-duration: 0.5s;
+  animation-name: changewidth;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
