@@ -23,6 +23,8 @@ const Timer = (props) => {
     setIsActive(true);
   }
 
+  
+
   useEffect(() => {
     let interval = null;
     if (isActive) {
@@ -35,7 +37,7 @@ const Timer = (props) => {
       timeIsUp();
     }
     return () => clearInterval(interval);
-  }, [isActive, seconds]);
+  }, [isActive, seconds]); //eslint-disable-line react-hooks/exhaustive-deps
 
   return <div>{`${seconds}s`}</div>;
 };
