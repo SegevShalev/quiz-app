@@ -1,5 +1,7 @@
 import React from "react";
 import escapeHtml from "../utils";
+import "../styles/Answers.css";
+
 export default function Answers(props) {
   let arrangedAnswers = [...props.incorrectAnswers];
   let randInx = Math.floor(Math.random() * (arrangedAnswers.length + 1));
@@ -15,7 +17,7 @@ export default function Answers(props) {
 
   let displayAnswer = arrangedAnswers.map((item) => {
     return (
-      <button
+      <button className="answer-btn"
         key={item}
         onClick={() =>
           props.checkAnswerCallback(
@@ -30,5 +32,9 @@ export default function Answers(props) {
     );
   });
 
-  return <div>{displayAnswer}</div>;
+  return (
+    <div className="answers-container">
+      <div className="grid-answers">{displayAnswer}</div>
+    </div>
+  );
 }

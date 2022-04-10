@@ -17,7 +17,7 @@ export default function RegistarModal(props) {
   };
 
   return (
-    <div className="modal-content">
+    <div>
       <Modal
         style={{
           overlay: {
@@ -30,7 +30,7 @@ export default function RegistarModal(props) {
               "radial-gradient( #004d7a, #008793, #00bf72, #a8eb12)",
           },
           content: {
-            background:"",
+            background: "",
             position: "absolute",
             top: "100px",
             left: "400px",
@@ -47,7 +47,7 @@ export default function RegistarModal(props) {
         isOpen={true}
       >
         <div className="container">
-          <h1 className="h1-register-modal">WELCOME to Quiz App</h1> 
+          <h1 className="h1-register-modal">WELCOME to Quiz App</h1>
           <br />
           <label className="input-field">
             <input
@@ -58,13 +58,23 @@ export default function RegistarModal(props) {
             <span className="placeholder">{placeholder}</span>
           </label>{" "}
           <br />
-          <button className="btn-register-modal"onClick={() => setPlayer()}>
+          <button className="btn-register-modal" onClick={() => setPlayer()}>
             <span role="img" aria-label="Backhand Index Pointing Up">
               Start The Game 👆
             </span>{" "}
           </button>
-          <div className="question-mark-left">?</div>
-          <div className="question-mark-right">?</div>
+          <div className="question-mark-left">
+            {" "}
+            <span role="img" aria-label="Man shruggin">
+              🤷‍♂️
+            </span>{" "}
+          </div>
+          <div className="question-mark-right">
+            {" "}
+            <span role="img" aria-label="Woman shruggin">
+              🤷‍♀️
+            </span>{" "}
+          </div>
         </div>
       </Modal>
     </div>

@@ -4,11 +4,8 @@ import Game from "./components/Game";
 import RegistarModal from "./components/RegistarModal";
 
 function App() {
-  const [player, setPlayer] = useState(true); //////////
+  const [player, setPlayer] = useState(true);
   const [name, setName] = useState("");
-
-  /* const [currentPlayerHighScore,setCurrentPlayerHighScore] = useState(0)
-  const [leaderBoard,setLeaderBoard] = useState([]) */
 
   const setPlayerCallback = (name) => {
     setName(name);
@@ -29,7 +26,12 @@ function App() {
 
   let game;
   if (player) {
-    game = <Game playerName={name} changePlayerCallback={() => newPlayerCallback()} />;
+    game = (
+      <Game
+        playerName={name}
+        changePlayerCallback={() => newPlayerCallback()}
+      />
+    );
   }
 
   return (

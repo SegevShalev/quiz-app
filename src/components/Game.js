@@ -100,25 +100,34 @@ export default function Game(props) {
 
   let question, answers;
   if (!newGameQuestions) {
-    question = "🤔🤔🤔";
+    question = (
+      <div className="game-loader-emoji">
+        <span role="img" aria-label="Thinking Face">
+          🤔🤔🤔
+        </span>
+      </div>
+    );
   }
   if (
     newGameQuestions &&
     questionCounter === Constants.INITIAL_QUESTION_COUNTER
   ) {
     question = (
-      <button onClick={() => nextQuestionCallback()}>
-        <span role="img" aria-label="Rocket">
-          Start 🚀
-        </span>
-      </button>
+      <div className="btn-start">
+        <button onClick={() => nextQuestionCallback()}>
+          Start
+          <span className="rocket-emoji" role="img" aria-label="Rocket">
+            🚀
+          </span>
+        </button>
+      </div>
     );
   }
   if (
     newGameQuestions &&
     questionCounter > Constants.INITIAL_QUESTION_COUNTER
   ) {
-    question = <Question question={currentQuestion} />;
+    question = <Question question={currentQuestion} difficulty={difficulty} />;
     answers = (
       <Answers
         incorrectAnswers={incorrectAnswers}
@@ -143,6 +152,7 @@ export default function Game(props) {
       <GameOverModal
         resetGameCallback={() => resetGameCallback()}
         changePlayerCallback={() => props.changePlayerCallback()}
+        finalScore={score}
       />
     );
   }
@@ -151,22 +161,27 @@ export default function Game(props) {
     <div>
       {question}
       {answers}
-      {score}
-      <br />
+      <div className="scoreboard">SCORE&nbsp;{score}</div>
       {props.playerName}
       {timeCountDown}
-      {heartEmoji}
-      {gameOverModal}
-      <div className="overModals">
-        <button onClick={() => resetGame()}><span role="img" aria-label="Zipper-Mouth">Reset Game 🤐</span></button>
-        <button onClick={() => props.changePlayerCallback()}>
-        <span role="img" aria-label="Switch">Change Player 🔁</span>
+      <div className="heartsleft">{heartEmoji}</div>
+      {gameOverModal} <br />
+      <div className="end-btn-position">
+        <button className="reset-chanage-btn" onClick={() => resetGame()}>
+          <span role="img" aria-label="Zipper-Mouth">
+            Reset Game 🤐
+          </span>
+        </button>
+        <button
+          className="reset-chanage-btn"
+          onClick={() => props.changePlayerCallback()}
+        >
+          <span role="img" aria-label="Switch">
+            Change Player 🔁
+          </span>
         </button>
       </div>
-      {/* 
-      <div>minigame</div>
-      <div>help</div>
-      <div>leaderboard</div> */}
+      {/* <div>leaderboard</div> */}
     </div>
   );
 }

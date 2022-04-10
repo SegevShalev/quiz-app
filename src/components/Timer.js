@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as Constants from "../constants";
+import "../styles/TimerComp.css";
 
 const Timer = (props) => {
   const [seconds, setSeconds] = useState(Constants.ONE_MINUTE);
@@ -23,8 +24,6 @@ const Timer = (props) => {
     setIsActive(true);
   }
 
-  
-
   useEffect(() => {
     let interval = null;
     if (isActive) {
@@ -39,7 +38,7 @@ const Timer = (props) => {
     return () => clearInterval(interval);
   }, [isActive, seconds]); //eslint-disable-line react-hooks/exhaustive-deps
 
-  return <div>{`${seconds}s`}</div>;
+  return <div className="timer-style">{`${seconds}s left!`}</div>;
 };
 
 export default Timer;

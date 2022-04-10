@@ -35,7 +35,7 @@ export default function GameOverModal(props) {
         isOpen={true}
       >
         <div>
-          Game Over!
+          Game Over! Your Score is {props.finalScore} 
           <button onClick={() => props.resetGameCallback()}>
             <span role="img" aria-label="Winking Face with Tongue">
               Try Again 😜
