@@ -4,7 +4,7 @@ import Game from "./components/Game";
 import RegistarModal from "./components/RegistarModal";
 
 function App() {
-  const [player, setPlayer] = useState(true);
+  const [player, setPlayer] = useState(false);
   const [name, setName] = useState("");
 
   const setPlayerCallback = (name) => {
